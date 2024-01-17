@@ -1,0 +1,48 @@
+import random
+list=["Rock","Paper","Scissors"]
+def user_choice():
+    u_c=input("Enter your choice:")
+    while u_c not in list:
+        print("Invalid option...enter again")
+        u_c=input("Enter your choice:")
+    return u_c
+def checking(name):
+    i=1
+    u=0
+    c=0
+    while(i<=n):
+        u_c=user_choice()
+        c_c=random.choice(list)   #Computer choice
+        print("Your choice:",u_c,"\nComputer choice:",c_c)
+        if( (u_c==list[0] and c_c==list[2]) or (u_c==list[1] and c_c==list[0]) or
+             (u_c==list[2] and c_c==list[1])):
+            print("    Round-",i)
+            u+=1
+            print("   ",name,"\U0001F9D1","- Computer","\U0001F916")
+            print("             \U0001F609")
+            print("     ",u,"        ",c)
+            i+=1
+        elif( u_c==c_c ):
+            print("It's a tie","\n\U0001F91D")
+        elif( (c_c==list[0] and u_c==list[2]) or (c_c==list[1] and u_c==list[0]) or
+             (c_c==list[2] and u_c==list[1])):
+            print("    Round-",i)
+            c+=1
+            print("   ",name,"\U0001F9D1","- Computer","\U0001F916")
+            print("              \U0001F9BE")
+            print("     ",u,"        ",c)
+            i+=1
+    return ([u,c])
+print("******WELCOM TO THE GAME*******")
+name=input("Enter your name:")
+n=int(input("Enter number of rounds you want the game to be(odd numbers only):"))
+print("(Note:First word must be capital)")
+i=1
+while(i==1):
+    print("Let's begin....\U0001F525")
+    game_list=checking(name)
+    if(game_list[0]>game_list[1]):
+        print(name,"you won \U0001F973")
+    else:
+        print("Computer won \U0001F47E")
+    i=int(input("Enter '1' if you want to play again and '0' to exit:"))
