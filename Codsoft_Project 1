@@ -1,0 +1,36 @@
+print("********A simple calculater******")
+
+while(True):
+    try:
+        a=int(input("Enter 1st value:"))
+    except:
+        print("Invalid Input")
+        continue
+    
+    operator=input("Enter operator:")
+   
+    try:
+        b=int(input("Enter 2nd Value:"))
+    except:
+        print("Invalid input")
+        continue
+
+    if(operator=='+'):
+        print(a,"+",b,'=',a+b)
+    elif(operator=='*'):
+        print(a,"*",b,'=',a*b)
+    elif(operator=='/'):
+        try:
+            print(a,"/",b,'=',a/b)
+        except ZeroDivisionError:
+            print("Division with zero is not possible")
+    elif(operator=='%'):
+        print(a,"%",b,'=',a%b)
+    elif(operator=='^'):
+        print(a,"^",b,'=',pow(a,b))
+    else:
+        print("Invalid Input Operator")
+    x=int(input("Enter 0 to exit and 1 to continue...."))
+    if(x==0):
+        print("Exiting the program....")
+
