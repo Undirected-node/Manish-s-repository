@@ -1,0 +1,60 @@
+class ContactBook():
+    name=""
+    p_no=0
+    email=""
+    address=""
+    j=0
+    def __init__(self,name,p_no,email,address,j):
+        self.name=name
+        self.p_no=p_no
+        self.email=email
+        self.address=address
+        self.j=j
+        print("Contact Updated")
+    def display(self):
+        print("Name:"+self.name)
+        print("Phone Number:",self.p_no)
+        print("Email:"+self.email)
+        print("Address:"+self.address)
+def search_contact(s,list):
+    for i in list:
+            if(i.name==s or str(i.p_no)==s):
+                return i
+    print("Contact not Found")
+    return -1
+
+list=[]
+j=0
+while(True):
+    print("***Contact Book*****")
+    print("Enter:\n1.Add Contact\n2.List of All contacts\n3.Search\n4.Update Contact\n5.Delete Contact\n6.Exit")
+    n=int(input())
+    if(n==1):
+        list.append(ContactBook(input("Enter Name:"),int(input("Enter Number:")),input("Enter Email:"),input("Enter Address:"),j+1))
+        j=j+1
+    if(n==2):
+        for i in list:
+            print(i.j,"Name:"+i.name,"   Phone number:",i.p_no)
+    if(n==3):
+        search=input("Enter Name or Phone Number:")
+        i=search_contact(search,list)
+        if(i!=-1):
+            print("Contact Found")
+            i.display()
+    if(n==4):
+        search=input("Enter Name of contact to update:")
+        i=search_contact(search,list)
+        i.name=input("Enter Name:")
+        i.p_no=int(input("Enter Number:"))
+        i.email=input("Enter Email:")
+        i.address=input("Enter Address:")
+        print("Contact Successfully Updated.\n") 
+    if n==5 :
+        search=input("Enter Name of contact to update:")
+        i=search_contact(search,list)
+        list.remove(i)
+        print("Contact Successfully Deleted.")
+    if n==6:
+        print("Exiting the program...")
+        exit()
+        
